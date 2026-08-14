@@ -1,0 +1,157 @@
+:root {
+    --primary: #7b1e3f;
+    --secondary: #f4c95d;
+    --bg: #fffaf6;
+    --text: #2b2b2b;
+    --muted: #6b7280;
+    --white: #fff;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: 'Prompt', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+a { text-decoration: none; color: inherit; }
+.container {
+    width: min(1100px, calc(100% - 32px));
+    margin: 0 auto;
+}
+.topbar {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.nav-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 0;
+}
+.brand {
+    display: flex;
+    flex-direction: column;
+}
+.brand-mark {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--primary);
+}
+.brand-sub {
+    font-size: 0.78rem;
+    color: var(--muted);
+}
+.nav-links, .lang-switch {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+.nav-links a, .lang-link {
+    font-size: 0.9rem;
+    color: var(--text);
+}
+.lang-link {
+    padding: 6px 10px;
+    border-radius: 999px;
+}
+.lang-link.active {
+    background: var(--primary);
+    color: var(--white);
+}
+.menu-toggle {
+    display: none;
+    border: none;
+    background: var(--primary);
+    color: var(--white);
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+.hero {
+    background: linear-gradient(135deg, #7b1e3f 0%, #b53f63 100%);
+    color: var(--white);
+    padding: 72px 0;
+}
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 0.9fr;
+    gap: 28px;
+    align-items: center;
+}
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.78rem;
+    opacity: 0.8;
+}
+h1, h2, h3 { margin-top: 0; }
+h1 { font-size: clamp(2rem, 4vw, 3.6rem); line-height: 1.1; margin-bottom: 12px; }
+.hero-text { max-width: 700px; font-size: 1.02rem; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+.btn {
+    display: inline-block;
+    padding: 11px 18px;
+    border-radius: 999px;
+    font-weight: 600;
+}
+.btn.primary { background: var(--secondary); color: #3a2a00; }
+.btn.secondary { background: rgba(255,255,255,0.16); color: var(--white); }
+.hero-card, .card, .promo-banner, .contact-card {
+    background: var(--white);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+}
+.hero-card { color: var(--text); padding: 24px; }
+.hero-card ul { padding-left: 18px; margin: 0; }
+.section { padding: 60px 0; }
+.alt-section { background: #f8f1f4; }
+.section-title { text-align: center; margin-bottom: 24px; }
+.section-title.left-align { text-align: left; }
+.card-grid {
+    display: grid;
+    gap: 20px;
+}
+.three-col { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.four-col { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.two-col { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.card { padding: 22px; }
+.promo-banner {
+    padding: 26px;
+    background: linear-gradient(135deg, #fff5d5, #fff);
+    border: 1px solid rgba(123, 30, 63, 0.12);
+}
+.contact-grid { display: grid; grid-template-columns: 1fr 0.8fr; gap: 24px; align-items: center; }
+.contact-card { padding: 24px; }
+.footer { background: #2c1321; color: #f5e7ec; padding: 22px 0; }
+.footer-row { display: flex; justify-content: space-between; gap: 16px; align-items: center; }
+
+@media (max-width: 840px) {
+    .hero-grid,
+    .contact-grid,
+    .three-col,
+    .four-col,
+    .two-col { grid-template-columns: 1fr; }
+    .menu-toggle { display: inline-block; }
+    .nav-links {
+        position: absolute;
+        top: 74px;
+        right: 16px;
+        background: rgba(255,255,255,0.98);
+        flex-direction: column;
+        padding: 16px;
+        border-radius: 14px;
+        box-shadow: var(--shadow);
+        display: none;
+    }
+    .nav-links.open { display: flex; }
+    .nav-wrap { flex-wrap: wrap; }
+    .lang-switch { width: 100%; justify-content: flex-end; }
+    .footer-row { flex-direction: column; align-items: flex-start; }
+}
